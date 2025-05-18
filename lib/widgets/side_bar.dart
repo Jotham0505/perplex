@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:perplex_clone/theme/colors.dart';
+import 'package:perplex_clone/widgets/side_bar_button.dart';
 
 class SideBar extends StatefulWidget {
   const SideBar({super.key});
@@ -26,52 +27,51 @@ class _SideBarState extends State<SideBar> {
           Icon(
             Icons.auto_awesome_mosaic,
             color: AppColors.whiteColor,
-            size: 30,
+            size: isCollapse ? 30 : 60,
           ),
-          SizedBox(
-            height: 24,
-          ),
-          Container(
-            margin: EdgeInsets.symmetric(vertical: 14),
-            child: Icon(
-              Icons.add,
-              color: AppColors.iconGrey,
-              size: 22,
+          Expanded(
+            child: Column(
+              crossAxisAlignment: isCollapse
+                  ? CrossAxisAlignment.center
+                  : CrossAxisAlignment.start,
+              children: [
+                SizedBox(
+                  height: 24,
+                ),
+                SideBarButton(
+                  // reusable widget
+                  isCollapse: isCollapse,
+                  icon: Icons.add,
+                  text: 'Home',
+                ),
+                SideBarButton(
+                  // reusable widget
+                  isCollapse: isCollapse,
+                  icon: Icons.search,
+                  text: 'Search',
+                ),
+                SideBarButton(
+                  // reusable widget
+                  isCollapse: isCollapse,
+                  icon: Icons.language,
+                  text: 'Spaces',
+                ),
+                SideBarButton(
+                  // reusable widget
+                  isCollapse: isCollapse,
+                  icon: Icons.auto_awesome,
+                  text: 'Discover',
+                ),
+                SideBarButton(
+                  // reusable widget
+                  isCollapse: isCollapse,
+                  icon: Icons.cloud_outlined,
+                  text: 'Library',
+                ),
+                Spacer(),
+              ],
             ),
           ),
-          Container(
-            margin: EdgeInsets.symmetric(vertical: 14),
-            child: Icon(
-              Icons.search,
-              color: AppColors.iconGrey,
-              size: 22,
-            ),
-          ),
-          Container(
-            margin: EdgeInsets.symmetric(vertical: 14),
-            child: Icon(
-              Icons.language,
-              color: AppColors.iconGrey,
-              size: 22,
-            ),
-          ),
-          Container(
-            margin: EdgeInsets.symmetric(vertical: 14),
-            child: Icon(
-              Icons.auto_awesome,
-              color: AppColors.iconGrey,
-              size: 22,
-            ),
-          ),
-          Container(
-            margin: EdgeInsets.symmetric(vertical: 14),
-            child: Icon(
-              Icons.cloud_outlined,
-              color: AppColors.iconGrey,
-              size: 22,
-            ),
-          ),
-          Spacer(),
           GestureDetector(
             onTap: () {
               setState(() {
