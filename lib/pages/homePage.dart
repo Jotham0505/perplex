@@ -9,82 +9,89 @@ class Homepage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Row(
-      children: [
-        //side nav bar
-        SideBar(),
+      body: Row(
+        children: [
+          //side nav bar
+          SideBar(),
 
-        Expanded(
-          child: Column(
-            children: [
-              // serach section
-              Expanded(child: SearchSection()),
-              // footer
+          Expanded(
+            child: Column(
+              children: [
+                // serach section
+                Expanded(child: SearchSection()),
+                // footer
 
-              Container(
-                padding: EdgeInsets.symmetric(
-                  vertical: 16,
-                ),
-                child: Wrap(
-                  alignment: WrapAlignment.center,
-                  children: [
-                    Padding(
-                      padding: EdgeInsets.symmetric(
-                        horizontal: 12,
+                Container(
+                  padding: EdgeInsets.symmetric(
+                    vertical: 16,
+                  ),
+                  child: Wrap(
+                    alignment: WrapAlignment.center,
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.symmetric(
+                          horizontal: 12,
+                        ),
+                        child: Text(
+                          "Pro",
+                          style: TextStyle(
+                              fontSize: 14, color: AppColors.footerGrey),
+                        ),
                       ),
-                      child: Text(
-                        "Pro",
-                        style: TextStyle(
-                            fontSize: 14, color: AppColors.footerGrey),
+                      Padding(
+                        padding: EdgeInsets.symmetric(
+                          horizontal: 12,
+                        ),
+                        child: Text(
+                          "Enterprise",
+                          style: TextStyle(
+                              fontSize: 14, color: AppColors.footerGrey),
+                        ),
                       ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.symmetric(
-                        horizontal: 12,
+                      Padding(
+                        padding: EdgeInsets.symmetric(
+                          horizontal: 12,
+                        ),
+                        child: Text(
+                          "Store",
+                          style: TextStyle(
+                            fontSize: 14,
+                            color: AppColors.footerGrey,
+                          ),
+                        ),
                       ),
-                      child: Text(
-                        "Enterprise",
-                        style: TextStyle(
-                            fontSize: 14, color: AppColors.footerGrey),
+                      Padding(
+                        padding: EdgeInsets.symmetric(
+                          horizontal: 12,
+                        ),
+                        child: Text(
+                          "Blog",
+                          style: TextStyle(
+                            fontSize: 14,
+                            color: AppColors.footerGrey,
+                          ),
+                        ),
                       ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.symmetric(
-                        horizontal: 12,
+                      Padding(
+                        padding: EdgeInsets.symmetric(
+                          horizontal: 12,
+                        ),
+                        child: Text(
+                          "English(English)",
+                          style: TextStyle(
+                            fontSize: 14,
+                            color: AppColors.footerGrey,
+                          ),
+                        ),
                       ),
-                      child: Text(
-                        "Store",
-                        style: TextStyle(
-                            fontSize: 14, color: AppColors.footerGrey),
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.symmetric(
-                        horizontal: 12,
-                      ),
-                      child: Text(
-                        "Blog",
-                        style: TextStyle(
-                            fontSize: 14, color: AppColors.footerGrey),
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.symmetric(
-                        horizontal: 12,
-                      ),
-                      child: Text(
-                        "English(English)",
-                        style: TextStyle(
-                            fontSize: 14, color: AppColors.footerGrey),
-                      ),
-                    ),
-                  ],
-                ),
-              )
-            ],
-          ),
-        )
-      ],
-    ));
+                    ],
+                  ),
+                )
+              ],
+            ),
+          )
+        ],
+      ),
+    );
   }
 }
