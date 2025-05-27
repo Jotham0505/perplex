@@ -11,8 +11,8 @@ search_service = SearchService()
 @app.post("/chat") # we need to take the body of the chat, and we have to use POST
 def chat_endpoint(body: ChatBody):
     #serach the web and find appropriate sources
-    search_service.web_search(body.query)
-
+    search_results = search_service.web_search(body.query)
+    print(search_results)
 
     
     # sort the sources based on relevance
