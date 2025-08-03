@@ -1,10 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:perplex_clone/services/chat_web_service.dart';
 import 'package:perplex_clone/theme/colors.dart';
 import 'package:perplex_clone/widgets/search_section.dart';
 import 'package:perplex_clone/widgets/side_bar.dart';
 
-class Homepage extends StatelessWidget {
+class Homepage extends StatefulWidget {
   const Homepage({super.key});
+
+  @override
+  State<Homepage> createState() => _HomepageState();
+}
+
+class _HomepageState extends State<Homepage> {
+  String fullRespose = "";
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    ChatWebService().connect();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -19,6 +33,17 @@ class Homepage extends StatelessWidget {
               children: [
                 // serach section
                 Expanded(child: SearchSection()),
+                StreamBuilder(
+                    stream: ChatWebService().contentStream,
+                    builder: (context, snapshot) {
+                      if (snapshot.connectionState == ConnectionState.waiting) {
+                        return Center(
+                          child: CircularProgressIndicator(),
+                        );
+                      }
+                      fullRespose += snapshot.data?['data'] ?? '';
+                      return Text(fullRespose);
+                    }),
                 // footer
 
                 Container(
