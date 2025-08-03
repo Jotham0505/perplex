@@ -24,6 +24,7 @@ class LLMService:
         Think and reason deeply. Ensure it answers the query the user is asking. Do not use your knowledge until it is absolutely necessary.
         """
        
-       response = self.model.generate_content(full_prompt)
+       response = self.model.generate_content(full_prompt,stream=True)
 
-       return response.text
+       for chunk in response:
+           yield chunk.text

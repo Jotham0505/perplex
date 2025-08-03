@@ -20,9 +20,9 @@ class SortSourceService:
             res_embedding = self.embedding_model.encode(content)
         
             # Compute similarity as before
-            similarity = np.dot(query_embedding, res_embedding) / (
+            similarity = float(np.dot(query_embedding, res_embedding) / (
             np.linalg.norm(query_embedding) * np.linalg.norm(res_embedding)
-            )
+            ))
             res['relevance_score'] = similarity
             if similarity > 0.3:
                 relevant_doc.append(res)
