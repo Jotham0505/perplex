@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:perplex_clone/pages/chatPage.dart';
 import 'package:perplex_clone/pages/homePage.dart';
 import 'package:perplex_clone/theme/colors.dart';
 
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: AppColors.background,
         textTheme: GoogleFonts.interTextTheme(ThemeData.dark().textTheme),
       ),
-      home: const Homepage(),
+      home: const Chatpage(),
     );
   }
 }

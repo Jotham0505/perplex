@@ -33,17 +33,7 @@ class _HomepageState extends State<Homepage> {
               children: [
                 // serach section
                 Expanded(child: SearchSection()),
-                StreamBuilder(
-                    stream: ChatWebService().contentStream,
-                    builder: (context, snapshot) {
-                      if (snapshot.connectionState == ConnectionState.waiting) {
-                        return Center(
-                          child: CircularProgressIndicator(),
-                        );
-                      }
-                      fullRespose += snapshot.data?['data'] ?? '';
-                      return Text(fullRespose);
-                    }),
+
                 // footer
 
                 Container(
