@@ -1,15 +1,45 @@
 import 'package:flutter/material.dart';
 import 'package:perplex_clone/widgets/side_bar.dart';
+import 'package:perplex_clone/widgets/sources_section.dart';
 
-class Chatpage extends StatefulWidget {
-  const Chatpage({super.key});
+class Chatpage extends StatelessWidget {
+  final String question;
+  const Chatpage({super.key, required this.question});
 
   @override
-  State<Chatpage> createState() => _ChatpageState();
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Row(
+        children: [
+          SideBar(),
+          SizedBox(
+            width: 100,
+          ),
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  question,
+                  style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
+                ),
+                SizedBox(
+                  height: 24,
+                ),
+                // sources
+                SourcesSection(),
+                // answer collection
+              ],
+            ),
+          )
+        ],
+      ),
+    );
+  }
 }
 
-class _ChatpageState extends State<Chatpage> {
-  /*
+/*
   StreamBuilder(
                   stream: ChatWebService().contentStream,
                   builder: (context, snapshot) {
@@ -22,14 +52,3 @@ class _ChatpageState extends State<Chatpage> {
                     return Text(fullRespose);
                   },
                 ),*/
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Row(
-        children: [
-          SideBar(),
-        ],
-      ),
-    );
-  }
-}

@@ -20,7 +20,9 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: AppColors.background,
         textTheme: GoogleFonts.interTextTheme(ThemeData.dark().textTheme),
       ),
-      home: const Chatpage(),
+      home: const Chatpage(
+        question: "What is Ind v Aus Score?",
+      ),
     );
   }
 }
