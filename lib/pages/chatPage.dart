@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:perplex_clone/widgets/asnwer_section.dart';
 import 'package:perplex_clone/widgets/side_bar.dart';
 import 'package:perplex_clone/widgets/sources_section.dart';
 
@@ -29,7 +30,11 @@ class Chatpage extends StatelessWidget {
                 ),
                 // sources
                 SourcesSection(),
+                SizedBox(
+                  height: 24,
+                ),
                 // answer collection
+                AsnwerSection(),
               ],
             ),
           )
