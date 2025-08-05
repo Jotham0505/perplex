@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:perplex_clone/theme/colors.dart';
 import 'package:perplex_clone/widgets/asnwer_section.dart';
 import 'package:perplex_clone/widgets/side_bar.dart';
 import 'package:perplex_clone/widgets/sources_section.dart';
@@ -16,27 +17,36 @@ class Chatpage extends StatelessWidget {
           SizedBox(
             width: 100,
           ),
-          Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  question,
-                  style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
+          Expanded(
+            child: SingleChildScrollView(
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      question,
+                      style:
+                          TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
+                    ),
+                    SizedBox(
+                      height: 24,
+                    ),
+                    // sources
+                    SourcesSection(),
+                    SizedBox(
+                      height: 24,
+                    ),
+                    // answer collection
+                    AsnwerSection(),
+                  ],
                 ),
-                SizedBox(
-                  height: 24,
-                ),
-                // sources
-                SourcesSection(),
-                SizedBox(
-                  height: 24,
-                ),
-                // answer collection
-                AsnwerSection(),
-              ],
+              ),
             ),
+          ),
+          Placeholder(
+            strokeWidth: 0,
+            color: AppColors.background,
           )
         ],
       ),
