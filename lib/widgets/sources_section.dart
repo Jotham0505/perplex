@@ -10,14 +10,14 @@ class SourcesSection extends StatefulWidget {
 }
 
 class _SourcesSectionState extends State<SourcesSection> {
-  List<Map<String, dynamic>> searchResults = [];
+  List searchResults = [];
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
     ChatWebService().searchResultStream.listen((data) {
       setState(() {
-        searchResults.add(data['data']);
+        searchResults = (data['data']);
       });
     });
   }
@@ -55,7 +55,7 @@ class _SourcesSectionState extends State<SourcesSection> {
           children: [
             ...searchResults.map((res) {
               return Container(
-                width: 175,
+                width: 140,
                 height: 115,
                 decoration: BoxDecoration(
                   color: AppColors.cardColor,
