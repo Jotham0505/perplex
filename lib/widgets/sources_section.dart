@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:perplex_clone/services/chat_web_service.dart';
 import 'package:perplex_clone/theme/colors.dart';
 
 class SourcesSection extends StatefulWidget {
@@ -9,25 +10,17 @@ class SourcesSection extends StatefulWidget {
 }
 
 class _SourcesSectionState extends State<SourcesSection> {
-  List<Map<String, dynamic>> searchResults = [
-    {
-      'title':
-          'Australia vs India 4th Test Live score and commentary (Cricbuzz)',
-      'url':
-          'https://www.cricbuzz.com/live-cricket-scorecard/91805/aus-vs-ind-4th-test-india-tour-of-australia-2024-25'
-    },
-    {
-      'title':
-          'Australia vs India 4th Test Live score & match updates (Times of India)',
-      'url':
-          'https://timesofindia.indiatimes.com/sports/cricket/india-vs-australia-live-score-4th-test-day-5-border-gavaskar-trophy-2024-ind-vs-aus-boxing-day-test-live-streaming-online/liveblog/116777549.cms'
-    },
-    {
-      'title': 'Australia vs India 4th Test Live score & result (ESPNcricinfo)',
-      'url':
-          'https://www.espncricinfo.com/series/australia-vs-india-2024-25-1426547/australia-vs-india-4th-test-1426558/live-cricket-score'
-    }
-  ];
+  List<Map<String, dynamic>> searchResults = [];
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    ChatWebService().searchResultStream.listen((data) {
+      setState(() {
+        searchResults.add(data['data']);
+      });
+    });
+  }
 
   @override
   Widget build(BuildContext context) {

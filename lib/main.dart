@@ -23,9 +23,7 @@ class MyApp extends StatelessWidget {
               bodyMedium: TextStyle(fontSize: 15, color: AppColors.whiteColor)),
         ),
       ),
-      home: const Chatpage(
-        question: "What is Ind v Aus Score?",
-      ),
+      home: Homepage(),
     );
   }
 }
