@@ -34,7 +34,7 @@ class _SearchBarButtonState extends State<SearchBarButton> {
         child: Row(
           children: [
             Icon(
-              widget.icon,
+              widget.icon, // widget changes here
               color: AppColors.iconGrey,
               size: 20,
             ),

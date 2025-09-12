@@ -1,6 +1,7 @@
 import google.generativeai as genai
 
-from config import Settings
+from server.config import Settings
+
 
 settings = Settings()
 class LLMService:
