@@ -9,23 +9,35 @@ class LLMService:
         genai.configure(api_key=settings.GEMINI_API_KEY)
         self.model = genai.GenerativeModel("gemini-2.0-flash")
 
-    def generate_response(self, query:str, search_results: list[dict]):
-       context_text = "\n\n".join([
-           f"Source {i+1} {result['url']}:\n{result['content']}"
-           for i, result in enumerate(search_results)
-       ])
+    def generate_response(self, query: str, search_results: list[dict]):
+        context_text = "\n\n".join([
+            f"Source {i+1} ({result['url']}):\n{result['content']}"
+            for i, result in enumerate(search_results)
+        ])
 
-       full_prompt = f"""
+        full_prompt = f"""
+        You are a highly knowledgeable and precise assistant. 
+        You will answer the user's query strictly based on the context provided from web sources below. 
+        Only use your own knowledge if the context does not provide the information, and clearly indicate that.
+
         Context from web search:
         {context_text}
 
-        Query: {query}
+        User Query: {query}
 
-        Please provide a comprehensive, detailed, well-cited accurate response using the above context. 
-        Think and reason deeply. Ensure it answers the query the user is asking. Do not use your knowledge until it is absolutely necessary.
+        Instructions:
+        1. Carefully read all context provided.
+        2. Answer the query in a detailed, comprehensive, and well-structured manner.
+        3. Cite sources from the context using the format [Source X].
+        4. If the context does not fully answer the query, you may provide additional information, clearly stating it is external.
+        5. Provide step-by-step reasoning if applicable.
+        6. Avoid making assumptions; rely on the sources as much as possible.
+        7. Conclude with a summary that directly answers the query.
+
+        Please generate a clear, accurate, and well-cited response.
         """
-       
-       response = self.model.generate_content(full_prompt,stream=True)
 
-       for chunk in response:
-           yield chunk.text
+        response = self.model.generate_content(full_prompt, stream=True)
+
+        for chunk in response:
+            yield chunk.text
