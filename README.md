@@ -43,7 +43,27 @@ Perplex bridges the gap between generative models and trustworthy information by
 | AI Model | **Google Gemini API** |
 | Retrieval | **Web Search / Custom Dataset Indexing (RAG)** |
 
+---
+
+## 📸 Screenshots
+
+Here are some snapshots from the **Perplex App** 👇  
+
+| Home Screen | Query Response | Source Citations |
+|--------------|----------------|------------------|
+| ![Home Screen](./screenshots/perplex1.png) | ![Query Response](./screenshots/perplex2.png) | ![Sources](./screenshots/perplex3.png) |
 
 ---
 
+### 🧩 App Flow
+
+1. **User enters a query** on the Flutter app.  
+2. The query is sent to the **FastAPI backend** (`/query` endpoint).  
+3. Backend retrieves external data via the **RAG pipeline**.  
+4. **Gemini API** processes the context and generates a grounded answer.  
+5. **Response + Citations** are displayed back in the Flutter UI.
+
+---
+
+## ⚙️ System Architecture
 
