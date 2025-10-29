@@ -65,5 +65,3 @@ Here are some snapshots from the **Perplex App** 👇
 
 ---
 
-## ⚙️ System Architecture
-
