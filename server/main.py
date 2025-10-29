@@ -12,7 +12,7 @@ search_service = SearchService()
 sort_source_service = SortSourceService()
 llm_service = LLMService()
 
-# chat websocket
+
 @app.websocket("/ws/chat")
 async def websocket_char_endpoint(websocket: WebSocket):
     await websocket.accept()
