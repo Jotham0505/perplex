@@ -42,10 +42,8 @@ Perplex bridges the gap between generative models and trustworthy information by
 | Backend | **FastAPI (Python)** |
 | AI Model | **Google Gemini API** |
 | Retrieval | **Web Search / Custom Dataset Indexing (RAG)** |
-| Database | **MongoDB / PostgreSQL (optional)** |
-| Deployment | **Render / Vercel / Firebase** |
+
 
 ---
 
-## ⚙️ System Architecture
 
