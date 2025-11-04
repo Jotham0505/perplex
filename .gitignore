@@ -46,3 +46,11 @@ app.*.map.json
 
 
 .env
+
+# --- ADDITIONS FOR PYTHON BACKEND ---
+
+# Python virtual environment
+/server/venv/
+
+# Python cache
+/server/__pycache__/
